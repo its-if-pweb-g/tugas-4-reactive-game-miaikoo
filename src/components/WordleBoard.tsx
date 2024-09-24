@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Input from "./Input";
+import words from "./words.json";
 
 const WordleBoard: React.FC = (): JSX.Element => {
   const [guesses, setGuesses] = useState<string[]>([...Array(6).fill("")]);
   const [solution, setSolution] = useState<string>("");
-  const [usableWords, setUsableWords] = useState<string[]>([]);
+  const [usableWords, _] = useState<string[]>(words);
 
   useEffect((): void => {
-    const fetchWords = async () => {
-      const response = await fetch("../../public/words.txt");
-      const text = await response.text();
-      const fiveLetterWords = text
-        .split("\n")
-        .filter((word) => word.length === 5);
-      setUsableWords(fiveLetterWords);
+    const fiveLetterWords: string[] = usableWords.filter(
+      (word: string) => word.length === 5
+    );
 
-      const randomNumber: number = Math.floor(
-        Math.random() * fiveLetterWords.length
-      );
-      setSolution(fiveLetterWords[randomNumber]);
-    };
-
-    fetchWords();
-  }, []);
+    const randomNumber: number = Math.floor(
+      Math.random() * fiveLetterWords.length
+    );
+    setSolution(fiveLetterWords[randomNumber]);
+  }, [usableWords]);
 
   useEffect((): void => {
     if (!solution) return;
