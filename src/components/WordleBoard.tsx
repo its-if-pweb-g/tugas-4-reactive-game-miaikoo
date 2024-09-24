@@ -8,10 +8,11 @@ const WordleBoard: React.FC = (): JSX.Element => {
 
   useEffect((): void => {
     const fetchWords = async () => {
-      const { default: words } = await import("an-array-of-english-words");
-      const fiveLetterWords: string[] = words.filter(
-        (word: string) => word.length === 5
-      );
+      const response = await fetch("/words.txt");
+      const text = await response.text();
+      const fiveLetterWords = text
+        .split("\n")
+        .filter((word) => word.length === 5);
       setUsableWords(fiveLetterWords);
 
       const randomNumber: number = Math.floor(
