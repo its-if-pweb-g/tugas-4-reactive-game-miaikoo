@@ -35,7 +35,8 @@ const WordleBoard: React.FC = (): JSX.Element => {
 
   return (
     <div>
-      <h1>Wordle, but fruit ver!</h1>
+      <h1>Wordle</h1>
+      <h4>but fruit ver!</h4>
       {guesses.map(
         (_, i: number): JSX.Element => (
           <Input
