@@ -22,6 +22,16 @@ h1 {
   animation: fadeIn 1s ease-in-out;
 }
 
+h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
