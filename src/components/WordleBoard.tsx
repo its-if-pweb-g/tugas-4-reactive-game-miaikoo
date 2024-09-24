@@ -8,7 +8,7 @@ const WordleBoard: React.FC = (): JSX.Element => {
 
   useEffect((): void => {
     const fetchWords = async () => {
-      const response = await fetch("/words.txt");
+      const response = await fetch("../../public/words.txt");
       const text = await response.text();
       const fiveLetterWords = text
         .split("\n")
