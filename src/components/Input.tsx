@@ -65,7 +65,7 @@ const Input: React.FC<Props> = ({
   return (
     <div>
       {currentGuess.map(
-        (letter: string, i: number): JSX.Element => (
+        (_, i: number): JSX.Element => (
           <input
             key={i}
             type="text"

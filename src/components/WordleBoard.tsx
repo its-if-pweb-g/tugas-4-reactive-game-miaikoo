@@ -42,7 +42,7 @@ const WordleBoard: React.FC = (): JSX.Element => {
     <div>
       <h1>Wordle!</h1>
       {guesses.map(
-        (guess: string, i: number): JSX.Element => (
+        (_, i: number): JSX.Element => (
           <Input
             index={i}
             key={i}
